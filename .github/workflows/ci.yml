@@ -31,10 +31,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "20.x"
-      - run: npm ci
-      - run: npx tsp format **/*.tsp
-      - run: npx tsp format **/*.tsp --check
+      - run: npm ci && npm install -g tsp
+      - run: npx tsp format **/*.tsp  --check
+      - run: git diff
+      - run: tsp format **/*.tsp --check
+      - run: git diff
+      - run: tsp format "**/*.tsp" --check
+      - run: git diff
       - run: npx tsp format "**/*.tsp" --check
+      - run: git diff
         working-directory: specification/cognitiveservices
       - run: git diff
       - run: |
