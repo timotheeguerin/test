@@ -31,7 +31,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "20.x"
-      - run: npm ci && npm install -g tsp
+      - run: npm ci && npm install -g @typespec/compiler
       - run: npx tsp format **/*.tsp  --check
       - run: git diff
       - run: tsp format **/*.tsp --check
