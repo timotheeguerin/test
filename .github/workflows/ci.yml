@@ -14,6 +14,7 @@ jobs:
           node-version: "20.x"
       - run: npm ci
       - run: npx tsp format **/*.tsp
+      - run: git diff
       - run: |
           git status --porcelain
           git diff --no-ext-diff --quiet --exit-code
@@ -29,6 +30,7 @@ jobs:
           node-version: "20.x"
       - run: npm ci
       - run: npx tsp format "**/*.tsp"
+      - run: git diff
       - run: |
           git status --porcelain
           git diff --no-ext-diff --quiet --exit-code
