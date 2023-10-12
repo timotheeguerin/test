@@ -33,6 +33,8 @@ jobs:
           node-version: "20.x"
       - run: npm ci
       - run: npx tsp format **/*.tsp
+      - run: npx tsp format **/*.tsp --check
+      - run: npx tsp format "**/*.tsp" --check
         working-directory: specification/cognitiveservices
       - run: git diff
       - run: |
